@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "title": "Player Unknown's Battle Ground",
+    "coverPhoto": "https://astrocadebd.com/images/banner3.jpg",
+    "category": "FPS",
+    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps. Players can explore various terrains, scavenge for weapons, and team up with friends or go solo. The game constantly updates with new seasons, challenges, and special events to keep the gameplay fresh and exciting.",
+    "ratings": "4.5",
+    "developer": "Krafton"
+  },
+  {
+    "id": 2,
+    "title": "Among Us",
+    "coverPhoto": "https://wwntradio.com/wp-content/uploads/2023/08/Online-Betting.jpg",
+    "category": "Casual",
+    "downloadLink": "https://www.innersloth.com/gameAmongUs.php",
+    "description": "Among Us is a multiplayer social deduction game where crewmates work together to complete tasks on a spaceship, while impostors attempt to sabotage the mission and eliminate players. The game emphasizes teamwork, communication, and deception, making every session a fun and unpredictable experience for both casual and competitive players.",
+    "ratings": "4.2",
+    "developer": "Innersloth"
+  },
+  {
+    "id": 3,
+    "title": "FIFA 23",
+    "coverPhoto": "https://c8.alamy.com/comp/2PC81AE/bangladesh-kicked-off-their-bangabandhu-cup-international-kabaddi-with-a-facile-50-22-points-victory-over-european-opponent-poland-the-bangabandhu-cu-2PC81AE.jpg",
+    "category": "Sports",
+    "downloadLink": "https://www.ea.com/games/fifa/fifa-23",
+    "description": "FIFA 23 brings real-world football excitement to your screen with new features, improved gameplay mechanics, and authentic player movements. Gamers can play in multiple modes including career mode, ultimate team, and online matches. The game also emphasizes realistic graphics, stadium atmospheres, and licensed teams to deliver an immersive football experience.",
+    "ratings": "4.6",
+    "developer": "EA Sports"
+  },
+  {
+    "id": 4,
+    "title": "Minecraft",
+    "coverPhoto": "https://thenuevacurrent.com/wp-content/uploads/2025/10/Nueva-US-Girls-VA-Tennis-09.09.25_Mazzoni-00059-1200x909.jpg",
+    "category": "Sandbox",
+    "downloadLink": "https://www.minecraft.net/",
+    "description": "Minecraft is a sandbox game where players can explore infinite worlds, gather resources, build structures, and survive against monsters. The game allows for creative freedom, from building intricate structures to coding complex redstone machines. With multiplayer servers and regular updates, Minecraft continues to engage both casual and hardcore gamers alike.",
+    "ratings": "4.8",
+    "developer": "Mojang"
+  },
+  {
+    "id": 5,
+    "title": "Call of Duty: Mobile",
+    "coverPhoto": "https://www.shutterstock.com/image-photo/chess-game-hand-moves-black-260nw-2106760757.jpg",
+    "category": "FPS",
+    "downloadLink": "https://www.callofduty.com/mobile",
+    "description": "Call of Duty: Mobile brings the classic first-person shooter experience to mobile devices with multiplayer and battle royale modes. Players can unlock iconic weapons, customize loadouts, and engage in tactical combat across dynamic maps. Frequent seasonal events and ranked matches keep the gameplay competitive and exciting.",
+    "ratings": "4.7",
+    "developer": "Activision"
+  },
+  {
+    "id": 6,
+    "title": "League of Legends: Wild Rift",
+    "coverPhoto": "https://www.sportanddev.org/sites/default/files/media/dsc07439-min.jpg",
+    "category": "MOBA",
+    "downloadLink": "https://wildrift.leagueoflegends.com/",
+    "description": "League of Legends: Wild Rift is a mobile version of the legendary MOBA game, allowing players to engage in fast-paced 5v5 battles. With a variety of champions, strategic team play, and competitive ranked matches, it offers a rich tactical experience. Players can enjoy short matches with full League mechanics optimized for mobile.",
+    "ratings": "4.4",
+    "developer": "Riot Games"
+  },
+  {
+    "id": 7,
+    "title": "Genshin Impact",
+    "coverPhoto": "https://www.jokescoff.com/wp-content/uploads/Top-10-Must-Watch-Bangladeshi-Games-Competitions-Classic-Indoor-and-Outdoor-Games.jpg",
+    "category": "RPG",
+    "downloadLink": "https://genshin.mihoyo.com/",
+    "description": "Genshin Impact is an open-world action RPG featuring beautiful landscapes, elemental combat, and an engaging storyline. Players can explore vast regions, collect characters, and participate in cooperative multiplayer challenges. Frequent updates, events, and a gacha system keep the gameplay fresh and immersive.",
+    "ratings": "4.6",
+    "developer": "miHoYo"
+  },
+  {
+    "id": 8,
+    "title": "The Sims 4",
+    "coverPhoto": "https://rollors.com/cdn/shop/articles/Rollors_Outdoor_Yard_Game_345x345@2x.png?v=1632063064",
+    "category": "Simulation",
+    "downloadLink": "https://www.ea.com/games/the-sims/the-sims-4",
+    "description": "The Sims 4 allows players to create and control people in a simulated world. Players can build houses, pursue careers, develop relationships, and live out unique life stories. The game provides immense creative freedom, expansion packs, and a thriving online community for sharing creations.",
+    "ratings": "4.3",
+    "developer": "EA"
+  },
+  {
+    "id": 9,
+    "title": "Fortnite",
+    "coverPhoto": "https://media.istockphoto.com/id/2110142486/photo/couple-playing-cornhole-game-outdoor-on-sunny-summer-day.jpg?s=612x612&w=0&k=20&c=s1jBAkABQLn4ja2qFXUEMjGBNUl--kWHudFBdnzVs4w=",
+    "category": "Battle Royale",
+    "downloadLink": "https://www.epicgames.com/fortnite/en-US/home",
+    "description": "Fortnite is a vibrant battle royale game where 100 players fight to be the last one standing. Players can build structures, gather resources, and use a wide variety of weapons. Frequent seasonal events, skins, and crossovers with pop culture icons make the game constantly evolving and exciting.",
+    "ratings": "4.5",
+    "developer": "Epic Games"
+  },
+  {
+    "id": 10,
+    "title": "Candy Crush Saga",
+    "coverPhoto": "https://ironhorsegolfclub.com/wp-content/uploads/2016/10/Golf-Ball.jpg",
+    "category": "Puzzle",
+    "downloadLink": "https://www.king.com/game/candycrush",
+    "description": "Candy Crush Saga is a casual match-3 puzzle game that challenges players to swap and match candies to achieve high scores. With hundreds of levels, unique obstacles, and timed challenges, it provides endless entertainment. Special boosters and events keep players engaged and motivated.",
+    "ratings": "4.1",
+    "developer": "King"
+  },
+    {
+    "id": 11,
+    "title": "Call of Duty: Mobile",
+    "coverPhoto": "https://www.bciburke.com/Portals/0/memory-reactions.jpg",
+    "category": "FPS",
+    "downloadLink": "https://www.callofduty.com/mobile",
+    "description": "Call of Duty: Mobile brings the legendary FPS franchise to your mobile device. Battle it out in classic maps and game modes, including Battle Royale, Multiplayer, and Zombies. Customize your loadout, team up with friends, and climb the leaderboards.",
+    "ratings": "4.7",
+    "developer": "Activision"
+  },
+  {
+    "id": 12,
+    "title": "Genshin Impact",
+    "coverPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyWzN_rSGkhwEskUngxP0Bn29x8iYzPuAQgpLsqtuwPBiSE6KLroIg4t8yCmnsorUX7-Y&usqp=CAU",
+    "category": "RPG",
+    "downloadLink": "https://genshin.hoyoverse.com/en",
+    "description": "Genshin Impact is an open-world action RPG where players explore the fantasy land of Teyvat. Collect characters, engage in elemental combat, complete quests, and unravel the mysteries of the world. Beautiful visuals and an engaging story make it one of the most popular mobile RPGs.",
+    "ratings": "4.6",
+    "developer": "miHoYo"
+  }
+]
+
+
