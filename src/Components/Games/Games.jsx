@@ -1,11 +1,23 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Games = () => {
+  const {user} =useContext(AuthContext)
     const data =useLoaderData();
     const navigate =useNavigate()
   const handleViewDetails = (game) => {
-    navigate(`/game/${game.id}`);
+    if (!game) return;
+      if (user) {
+      
+      navigate(`/game/${game.id}`);
+    } else {
+      
+      navigate("/login");
+    }
+  
+  
   };
     return (
          <div className="bg-base-300 pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">

@@ -1,20 +1,26 @@
 import React, { createContext, useEffect, useState } from 'react';
-import app from '../../Firebase/Firebase.config';
-import { getAuth, signOut } from 'firebase/auth';
+import {  sendPasswordResetEmail, signOut } from 'firebase/auth';
 import { onAuthStateChanged, signInWithEmailAndPassword ,GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword,updateProfile} from 'firebase/auth';
+import { auth } from '../../Firebase/firebase.config.js';
 
 
 
 
- const auth =getAuth(app)
+
+
+
+ 
  export const AuthContext = createContext(null);
+ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
+  console.log(auth)
       const [user, setUser] = useState(null);
-       const googleProvider = new GoogleAuthProvider();
+        const [loading, setLoading] = useState(true);
+       
 
    const createUser = async (email, password, name, photo) => {
-    // setLoading(true);
+    setLoading(true);
     const result = await createUserWithEmailAndPassword(auth, email, password);
     if (result.user) {
       await updateProfile(result.user, {
@@ -27,8 +33,7 @@ const AuthProvider = ({children}) => {
         photoURL: photo,
       });
     }
-    // setLoading(false);
-    return result.user;
+     setLoading(false);
   };
 
          // Google Login Function
@@ -38,7 +43,9 @@ const AuthProvider = ({children}) => {
 
         const loginUser = (email, password) => {
     
-    return signInWithEmailAndPassword(auth, email, password);
+          setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password)
+    // .finally(() => setLoading(false));
 
   };
 
@@ -46,9 +53,12 @@ const AuthProvider = ({children}) => {
     // setLoading(true);
     return signOut(auth);
   };
+    const resetPassword = (email) => sendPasswordResetEmail(auth, email);
+
     useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+       setLoading(false);
       
     });
     return () => unsubscribe();
@@ -59,7 +69,9 @@ const AuthProvider = ({children}) => {
      createUser,
     logOut,
     loginUser,
-    googleLogin
+    loading,
+    googleLogin,
+    resetPassword
   }
 
    
@@ -73,4 +85,5 @@ const AuthProvider = ({children}) => {
 };
 
 export default AuthProvider;
+
 

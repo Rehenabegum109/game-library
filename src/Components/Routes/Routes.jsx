@@ -5,6 +5,8 @@ import GameDetails from "../GameDetails/GameDetails";
 import Games from "../Games/Games";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import ForgetPassword from "../Register/ForgetPassword";
+import PrivetRout from "../../../../Dragon-news-with-router/src/components/Provider/PrivetRout";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +19,11 @@ export const router = createBrowserRouter([
          {
         path: "/game/:id",
         loader:() =>fetch('/game.json'),
-        element: <GameDetails />,
+        element:<PrivetRout>
+         <GameDetails />
+        </PrivetRout>
+        
+       
       },
         {
 
@@ -32,6 +38,10 @@ export const router = createBrowserRouter([
         {
           path:'register',
           element:<Register/>
+        },
+        {
+          path:'forget-password',
+          element:<ForgetPassword/>
         }
     ] 
     

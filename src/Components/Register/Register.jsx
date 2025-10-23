@@ -1,14 +1,15 @@
 // src/Components/Register/Register.jsx
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 // import { useNavigate } from "react-router";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -26,7 +27,8 @@ const Register = () => {
 
     createUser(email, password, name,photo)
       .then(() => {
-        alert("Account created successfully!");
+              toast.success("Registration successful!");
+              navigate("/");
         
       })
       .catch((err) => (err.message));
@@ -52,13 +54,14 @@ const Register = () => {
              <input type="email" name="email"  required className="input" placeholder="Email" />
              <label className="label">Password</label>
              <input type="password" name="password"   className="input" placeholder="Password" required />
+          
     
              {error && <p className="text-red-500 text-sm">{error}</p>}
              
              <p className="text-xl font-bold">Already have an account ?{''}<Link  className="text-blue-600" to='/login'>Login</Link>
              
    </p>
-             <button className="btn btn-neutral mt-4">Register</button>
+             <button type="submit" className="btn btn-neutral mt-4">Register</button>
              
             
    
