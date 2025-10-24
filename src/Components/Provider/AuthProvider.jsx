@@ -20,10 +20,10 @@ export const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
 
-  // Auth state listener
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser); // user info সব এখানে
+      setUser(currentUser); 
       setLoading(false);
     });
     return () => unsubscribe();
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
   // Email/Password register
-  const register = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+  const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
   // Logout
   const logout = () => {
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, resetPassword, updateUserProfile, loginWithGoogle }}>
+    <AuthContext.Provider value={{ user, loading, login, createUser, logout, resetPassword, updateUserProfile, loginWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );
