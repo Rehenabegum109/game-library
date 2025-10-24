@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import Logo from '../../assets/image/e584c0a059b6c7c4f4c23852153e5521.webp'
 import {  Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 const Navbar = () => {
-const { user, logOut } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext)
 
 const handleLogout = () => {
-    logOut()
-      .then(() => console.log("User logged out"))
+    logout()
+      .then(() => 
+          toast.success("Logged out successfully!"))
       .catch((err) => console.error(err));
   };
 
@@ -30,6 +32,15 @@ const handleLogout = () => {
         }
       >
         Games
+      </NavLink>
+
+      <NavLink
+        to="/profile"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 font-bold" : "hover:text-blue-400"
+        }
+      >
+        My Profile
       </NavLink>
       </div>
       
@@ -79,17 +90,17 @@ const handleLogout = () => {
             {/* Logout */}
             <button
               onClick={handleLogout}
-              className="btn btn-error text-white font-semibold"
+              className="btn btn-outline bg-green-500  text-white font-semibold"
             >
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" className="btn btn-outline btn-primary">
+            <Link to="/login" className="btn btn-outline bg-green-500">
               Login
             </Link>
-            <Link to="/register" className="btn btn-outline btn-primary">
+            <Link to="/register" className="btn btn-outline bg-green-500">
               Register
             </Link>
           </>

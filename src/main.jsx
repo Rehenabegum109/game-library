@@ -8,6 +8,8 @@ import { router } from './Components/Routes/Routes.jsx';
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthProvider } from './Components/Provider/AuthProvider.jsx';
+
 
 
 

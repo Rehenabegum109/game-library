@@ -2,6 +2,8 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 // import { toast } from "react-toastify";
 
 
@@ -10,6 +12,7 @@ const Login = () => {
   const [error, setError] = useState("");
    const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
+      const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -44,8 +47,25 @@ Login to Your Account</h1>
         <fieldset className="fieldset">
           <label className="label">Email</label>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} name="email" required className="input" placeholder="Email" />
-          <label className="label">Password</label>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} name="password" className="input" placeholder="Password" required />
+  <label className="label">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  name="password"
+                  className="input input-bordered w-full"
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 cursor-pointer text-gray-600"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <p className="mt-2">

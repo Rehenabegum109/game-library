@@ -1,89 +1,67 @@
-import React, { createContext, useEffect, useState } from 'react';
-import {  sendPasswordResetEmail, signOut } from 'firebase/auth';
-import { onAuthStateChanged, signInWithEmailAndPassword ,GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword,updateProfile} from 'firebase/auth';
-import { auth } from '../../Firebase/firebase.config.js';
+// src/Components/Provider/AuthProvider.jsx
+import React, { createContext, useState, useEffect } from "react";
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "firebase/auth";
+import { auth } from "../../Firebase/firebase.config";
 
+export const AuthContext = createContext();
 
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null); 
+  const [loading, setLoading] = useState(true);
 
+  const googleProvider = new GoogleAuthProvider();
 
-
-
-
- 
- export const AuthContext = createContext(null);
- const googleProvider = new GoogleAuthProvider();
-
-const AuthProvider = ({children}) => {
-  console.log(auth)
-      const [user, setUser] = useState(null);
-        const [loading, setLoading] = useState(true);
-       
-
-   const createUser = async (email, password, name, photo) => {
-    setLoading(true);
-    const result = await createUserWithEmailAndPassword(auth, email, password);
-    if (result.user) {
-      await updateProfile(result.user, {
-        displayName: name,
-        photoURL: photo,
-      });
-      setUser({
-        ...result.user,
-        displayName: name,
-        photoURL: photo,
-      });
-    }
-     setLoading(false);
-  };
-
-         // Google Login Function
-  const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
-  };
-
-        const loginUser = (email, password) => {
-    
-          setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password)
-    // .finally(() => setLoading(false));
-
-  };
-
-    const logOut = () => {
-    // setLoading(true);
-    return signOut(auth);
-  };
-    const resetPassword = (email) => sendPasswordResetEmail(auth, email);
-
-    useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-       setLoading(false);
-      
+  // Auth state listener
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser); // user info সব এখানে
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  const authInfo ={
-    user,
-     createUser,
-    logOut,
-    loginUser,
-    loading,
-    googleLogin,
-    resetPassword
-  }
+  // Email/Password login
+  const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-   
-    return (
-        <div>
-              <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
-        </div>
-    );
+  // Email/Password register
+  const register = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+  // Logout
+  const logout = () => {
+  return signOut(auth)
+    
 };
 
-export default AuthProvider;
+  // Reset Password
+  const resetPassword = (email) => sendPasswordResetEmail(auth, email);
 
+  // Update Profile
+  const updateUserProfile = (name, photoURL) => {
+    if (!auth.currentUser) return;
+    return updateProfile(auth.currentUser, { displayName: name, photoURL })
+      .then(() => setUser({ ...auth.currentUser, displayName: name, photoURL })) // user info update
+      .catch(err => console.error(err));
+  };
 
+  // Google login
+  const loginWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider)
+      .then(result => setUser(result.user))
+      .catch(err => console.error(err));
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, loading, login, register, logout, resetPassword, updateUserProfile, loginWithGoogle }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

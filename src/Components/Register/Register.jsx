@@ -3,12 +3,14 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 // import { useNavigate } from "react-router";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); 
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -52,8 +54,23 @@ const Register = () => {
              <input type="text" name="photo" className="input" placeholder="photo url" />
              <label className="label">Email</label>
              <input type="email" name="email"  required className="input" placeholder="Email" />
-             <label className="label">Password</label>
-             <input type="password" name="password"   className="input" placeholder="Password" required />
+             
+              <label className="label">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="input input-bordered w-full"
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 cursor-pointer text-gray-600"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
           
     
              {error && <p className="text-red-500 text-sm">{error}</p>}

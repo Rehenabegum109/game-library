@@ -27,14 +27,17 @@ const Games = () => {
         return (
           <div
             key={id}
-            className="bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 p-4 flex flex-col justify-between cursor-pointer"
+            className="bg-white rounded-lg shadow-lg p-4 flex flex-col justify-between cursor-pointer
+                       transform transition duration-300 hover:scale-105 hover:shadow-2xl"
           >
             {/* Image */}
-            <img
-              src={coverPhoto}
-              alt={title}
-              className="w-full rounded h-48 object-cover mb-3"
-            />
+              <div className="overflow-hidden rounded">
+              <img
+                src={coverPhoto}
+                alt={title}
+                className="w-full h-48 object-cover mb-3 transform transition-transform duration-500 hover:scale-110"
+              />
+            </div>
 
             {/* Title */}
             <h2 className="font-bold text-xl mt-4 mb-2">{title}</h2>
