@@ -1,4 +1,4 @@
-// src/Components/Provider/AuthProvider.jsx
+
 import React, { createContext, useState, useEffect } from "react";
 import {
   onAuthStateChanged,

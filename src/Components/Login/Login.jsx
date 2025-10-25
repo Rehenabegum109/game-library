@@ -8,7 +8,7 @@ import { FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
-  const { loginUser,googleLogin } = useContext(AuthContext);
+  const { loginUser,loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
    const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ const Login = () => {
     }
 
   const handleGoogleLogin = () => {
-    googleLogin()
+    loginWithGoogle()
         .then(() => navigate("/"))
       .catch((error) => {
         console.error("Google Login Error:", error.message);
@@ -38,7 +38,7 @@ const Login = () => {
     <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col p-10 bg-amber-200 rounded-2xl ">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl text-center font-bold">Welcome Back!
+      <h1 className="text-5xl text-black text-center font-bold">Welcome Back!
 Login to Your Account</h1>
       
     </div>
