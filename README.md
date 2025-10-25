@@ -5,7 +5,7 @@ where users can browse popular games, view detailed information, and manage thei
 Firebase Authentication is used to enable login, registration, password reset, and profile updates.Users can also choose and install their favorite games directly from the platform for a more interactive experience.
 
 ******
-Live link :
+Live link :https://heartfelt-bublanina-6a0540.netlify.app
 
 ******
 Key Features
