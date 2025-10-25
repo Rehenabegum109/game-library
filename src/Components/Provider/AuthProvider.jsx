@@ -14,11 +14,12 @@ import { auth } from "../../Firebase/firebase.config";
 
 export const AuthContext = createContext();
 
+  const googleProvider = new GoogleAuthProvider();
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); 
   
 
-  const googleProvider = new GoogleAuthProvider();
 
   
   useEffect(() => {
@@ -55,8 +56,7 @@ export const AuthProvider = ({ children }) => {
   // Google login
   const loginWithGoogle = () => {
     return signInWithPopup(auth, googleProvider)
-      .then(result => setUser(result.user))
-      .catch(err => console.error(err));
+      
   };
 
   return (

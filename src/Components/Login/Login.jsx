@@ -28,7 +28,14 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     loginWithGoogle()
-        .then(() => navigate("/"))
+        .then((result) =>{
+          if(result.user) {
+            navigate("/")
+          }
+        }) 
+        
+
+           
       .catch((error) => {
         console.error("Google Login Error:", error.message);
       });
