@@ -16,7 +16,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); 
-  const [loading, setLoading] = useState(true);
+  
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser); 
-      setLoading(false);
+      
     });
     return () => unsubscribe();
   }, []);
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   const updateUserProfile = (name, photoURL) => {
     if (!auth.currentUser) return;
     return updateProfile(auth.currentUser, { displayName: name, photoURL })
-      .then(() => setUser({ ...auth.currentUser, displayName: name, photoURL })) // user info update
+      .then(() => setUser({ ...auth.currentUser, displayName: name, photoURL })) 
       .catch(err => console.error(err));
   };
 
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, createUser, logout, resetPassword, updateUserProfile, loginWithGoogle }}>
+    <AuthContext.Provider value={{ user,  login, createUser, logout, resetPassword, updateUserProfile, loginWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,11 +1,11 @@
-// src/Components/Register/Register.jsx
+
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-// import { useNavigate } from "react-router";
+
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
