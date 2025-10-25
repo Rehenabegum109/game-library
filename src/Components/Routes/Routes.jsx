@@ -8,49 +8,58 @@ import Register from "../Register/Register";
 import ForgetPassword from "../Register/ForgetPassword";
 import PrivateRoute from "../Provider/PrivetRoute";
 import Profile from "../Navbar/Profile";
+import Loading from "../Loading";
+import NotFound from "../NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    children :[
-        {
-            index:true,
-            element:<Hoompage/>
-        },
-         {
-        path: "/game/:id",
-        loader:() =>fetch('/game.json'),
-        element:<PrivateRoute>
-         <GameDetails />
-        </PrivateRoute>
-        
-       
+    children: [
+      {
+        index: true,
+        element: <Hoompage />,
       },
-        {
-
-        path:'games',
-        loader:() =>fetch('/game.json'),
-        element:<Games/>
-        },
-        {
-          path:"login",
-          element:<Login/>
-        },
-        {
-          path:'register',
-          element:<Register/>
-        },
-        {
-          path:'forget-password',
-          element:<ForgetPassword/>
-        },
-        {
-          path:'profile',
-          element:<PrivateRoute><Profile/></PrivateRoute>
-          
-        }
-    ] 
-    
+      {
+        path: "game/:id",
+        hydrateFallbackElement: <Loading />,
+        loader: () => fetch("/game.json"),
+        element: (
+          <PrivateRoute>
+            <GameDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "games",
+        hydrateFallbackElement: <Loading />,
+        loader: () => fetch("/game.json"),
+        element: <Games />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "forget-password",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
   },
 ]);

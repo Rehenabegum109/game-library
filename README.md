@@ -1,16 +1,41 @@
-# React + Vite
+ Project name :A Game Library
+ *******
+ Project purpose :A game library  is a React-based Single Page Application (SPA)
+where users can browse popular games, view detailed information, and manage their profiles.
+Firebase Authentication is used to enable login, registration, password reset, and profile updates.Users can also choose and install their favorite games directly from the platform for a more interactive experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+******
+Live link :
 
-Currently, two official plugins are available:
+******
+Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ User Authentication (Register, Login, Google Login, Logout)
+Password Reset via Email
+Profile Update (Name & Photo URL )
+Popular Games Section (Top 3 Sorted by Ratings)
+ Game Details Page
+ Animated Banner using Framer Motion
+ Newsletter Subscription Section
+Fully Responsive (Mobile, Tablet, Desktop)
+ Firebase Config Secured via .env.local
+ Toast Notifications (Success / Error)
+ Deployed on Netlify with route protection
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ *******
+  Npm packages
 
-## Expanding the ESLint configuration
+React (Vite setup) — Fast and modern build tool for React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React Router DOM — For smooth SPA navigation
+
+Tailwind CSS + DaisyUI — For beautiful and responsive UI design
+
+Framer Motion — Adds elegant animations and transitions
+
+React Icons — For adding stylish icons easily
+
+React Toastify — For clean and user-friendly toast notification
+Firebase Authentication — Handles user login, registration, password reset, and profile management securely
+Netlify — Used for fast and reliable deployment of the live site
