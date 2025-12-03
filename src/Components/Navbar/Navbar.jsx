@@ -19,7 +19,7 @@ const handleLogout = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 font-bold" : "hover:text-blue-400"
+          isActive ? "text-white  font-bold" : "text-white hover:text-green-200"
         }
       >
         Home
@@ -28,26 +28,32 @@ const handleLogout = () => {
       <NavLink
         to="/games"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 font-bold" : "hover:text-blue-400"
+          isActive ? "text-white font-bold" : "text-white hover:text-green-200"
         }
       >
         Games
       </NavLink>
+           <NavLink
+        to="/about-us"
+        className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}
+      >About Us</NavLink>
 
       <NavLink
-        to="/profile"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 font-bold" : "hover:text-blue-400"
-        }
-      >
-        My Profile
-      </NavLink>
+        to="/contact"
+        className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}
+      >Contact</NavLink>
+
+    
+
+   {user && (
+          <NavLink to="/profile" className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}>My Profile</NavLink>
+        )}
       </div>
       
     </>
   );
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-green-500 shadow-md px-6 lg:px-12 sticky top-0 z-50">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -97,10 +103,10 @@ const handleLogout = () => {
           </>
         ) : (
           <>
-            <Link to="/login" className="btn btn-outline bg-green-500">
+            <Link to="/login" className="btn btn-outline text-white bg-green-500">
               Login
             </Link>
-            <Link to="/register" className="btn btn-outline bg-green-500">
+            <Link to="/register" className="btn btn-outline text-white bg-green-500">
               Register
             </Link>
           </>

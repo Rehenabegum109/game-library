@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-// import { toast } from "react-toastify";
+
 
 
 const Login = () => {

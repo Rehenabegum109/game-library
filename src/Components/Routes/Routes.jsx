@@ -10,6 +10,8 @@ import PrivateRoute from "../Provider/PrivetRoute";
 import Profile from "../Navbar/Profile";
 import Loading from "../Loading";
 import NotFound from "../NotFound";
+import AboutUs from "../AboutUs/AboutUs";
+import Contact from "../Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -24,11 +26,16 @@ export const router = createBrowserRouter([
         path: "game/:id",
         hydrateFallbackElement: <Loading />,
         loader: () => fetch("/game.json"),
-        element: (
-          <PrivateRoute>
-            <GameDetails />
-          </PrivateRoute>
-        ),
+        element: <GameDetails />
+        
+      },
+      {
+        path:'about-us',
+        element:<AboutUs/>
+      },
+      {
+        path:'contact',
+        element:<Contact/>
       },
       {
         path: "games",

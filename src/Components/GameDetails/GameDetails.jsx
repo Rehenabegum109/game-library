@@ -24,7 +24,7 @@ const GameDetails = () => {
         </div>,
         {
           autoClose: 2000,
-          onClose: () => navigate("/"), // redirect to homepage after toast closes
+          onClose: () => navigate("/"), 
         }
       );
     } else {
