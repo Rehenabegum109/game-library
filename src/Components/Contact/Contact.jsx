@@ -32,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full bg-gray-50 py-20 px-6 sm:px-12">
+    <div className="w-full bg-gray-200 py-20 px-6 sm:px-12">
       
       {/* Title */}
       <h2 className="text-4xl font-bold text-center mb-12">Contact Us</h2>

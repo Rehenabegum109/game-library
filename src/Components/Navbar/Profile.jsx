@@ -21,7 +21,7 @@ const Profile = () => {
     try {
       await updateUserProfile(name, photoURL);
       toast.success("Profile updated successfully!");
-      navigate("/"); // Update হলে home page-এ redirect
+      navigate("/"); 
     } catch (err) {
       toast.error("Failed to update profile!");
       console.error(err);
@@ -31,7 +31,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 px-4 grid grid-cols-1 gap-6 md:grid-cols-1">
+    <div className="container mx-auto  bg-gray-200 pt-12 px-4 grid grid-cols-1 gap-6 md:grid-cols-1">
       {/* Card 1: User Info */}
       <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center w-full max-w-sm mx-auto">
         <h2 className="text-2xl font-bold mb-4">My Profile</h2>
@@ -72,7 +72,7 @@ const Profile = () => {
 
           <button
             type="submit"
-            className={`btn btn-primary w-full text-sm font-semibold ${
+            className={`btn bg-green-500 w-full text-sm font-semibold ${
               loading ? "loading" : ""
             }`}
             disabled={loading}

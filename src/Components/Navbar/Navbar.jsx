@@ -1,25 +1,24 @@
 import React, { useContext } from 'react';
-import Logo from '../../assets/image/e584c0a059b6c7c4f4c23852153e5521.webp'
-import {  Link, NavLink } from 'react-router';
+import Logo from '../../assets/image/e584c0a059b6c7c4f4c23852153e5521.webp';
+import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-const Navbar = () => {
-  const { user, logout } = useContext(AuthContext)
 
-const handleLogout = () => {
+const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
     logout()
-      .then(() => 
-          toast.success("Logged out successfully!"))
+      .then(() => toast.success("Logged out successfully!"))
       .catch((err) => console.error(err));
   };
 
   const links = (
     <>
-    <div className='flex flex-col lg:flex-row gap-5'>
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-white  font-bold" : "text-white hover:text-green-200"
+          isActive ? "text-white font-bold" : "text-white hover:text-green-200"
         }
       >
         Home
@@ -33,46 +32,79 @@ const handleLogout = () => {
       >
         Games
       </NavLink>
-           <NavLink
+
+      <NavLink
         to="/about-us"
-        className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}
-      >About Us</NavLink>
+        className={({ isActive }) =>
+          isActive ? "text-white font-bold" : "text-white hover:text-green-200"
+        }
+      >
+        About Us
+      </NavLink>
 
       <NavLink
         to="/contact"
-        className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}
-      >Contact</NavLink>
+        className={({ isActive }) =>
+          isActive ? "text-white font-bold" : "text-white hover:text-green-200"
+        }
+      >
+        Contact
+      </NavLink>
 
-    
-
-   {user && (
-          <NavLink to="/profile" className={({ isActive }) => isActive ? "text-white font-bold" : "text-white hover:text-green-200"}>My Profile</NavLink>
-        )}
-      </div>
-      
+      {user && (
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold" : "text-white hover:text-green-200"
+          }
+        >
+          My Profile
+        </NavLink>
+      )}
     </>
   );
-    return (
-        <div className="navbar bg-green-500 shadow-md px-6 lg:px-12 sticky top-0 z-50">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+
+  return (
+    <div className="navbar bg-green-500 shadow-md px-6 lg:px-12 sticky top-0 z-50">
+      {/* Navbar Start */}
+      <div className="navbar-start">
+        <div className="dropdown">
+          {/* Mobile Dropdown Button */}
+          <div tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          {/* Mobile Dropdown Menu */}
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-green-500 rounded-box mt-3 w-52 p-2 shadow"
+          >
+            <div className="flex flex-col gap-3">{links}</div>
+          </ul>
+        </div>
+        {/* Logo */}
+        <img className="w-[60px]" src={Logo} alt="logo" />
       </div>
-      <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-       {links}
-      </ul>
-    </div>
-    <img className='w-[60px]' src={Logo} alt="logo" />
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-     {links}
-    </ul>
-  </div>
-    <div className="navbar-end gap-4">
+
+      
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 gap-5">{links}</ul>
+      </div>
+
+      
+      <div className="navbar-end gap-4">
         {user ? (
           <>
             {/* User Info */}
@@ -85,35 +117,41 @@ const handleLogout = () => {
                 />
               ) : (
                 <div className="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center text-lg font-bold text-blue-700">
-                  {user.displayName?.[0] || "U"}
+                  {user.displayName?.[0] || 'U'}
                 </div>
               )}
               <span className="font-semibold hidden sm:block">
-                {user.displayName || "User"}
+                {user.displayName || 'User'}
               </span>
             </div>
 
-            {/* Logout */}
+            {/* Logout Button */}
             <button
               onClick={handleLogout}
-              className="btn btn-outline bg-green-500  text-white font-semibold"
+              className="btn btn-outline bg-green-500 text-white font-semibold"
             >
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" className="btn btn-outline text-white bg-green-500">
+            <Link
+              to="/login"
+              className="btn btn-outline text-white bg-green-500"
+            >
               Login
             </Link>
-            <Link to="/register" className="btn btn-outline text-white bg-green-500">
+            <Link
+              to="/register"
+              className="btn btn-outline text-white bg-green-500"
+            >
               Register
             </Link>
           </>
         )}
       </div>
-</div>
-    );
+    </div>
+  );
 };
 
 export default Navbar;
