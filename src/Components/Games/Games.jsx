@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 
@@ -27,7 +27,7 @@ const Games = () => {
   const categories = ["All", ...new Set(data.map(g => g.category))];
 
   return (
-    <div className="bg-base-300 pt-10">
+    <div className="bg-gray-200 pt-10">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 mb-10">
 
         {/* Sorting & Filtering */}
